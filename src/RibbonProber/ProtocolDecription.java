@@ -61,25 +61,25 @@ public abstract class ProtocolDecription {
      */
     public static void initProtocol() {
         
-        commands.add(new ProtocolCommand("RIBBON_GREETINGS",
-                "[LEVEL_0] RIBBON_GREETINGS\n"
+        commands.add(new ProtocolCommand("RIBBON_CONNECTION_INIT",
+                "[LEVEL_0] RIBBON_CONNECTION_INIT\n"
                     + "Команда привітання з сервером.\n"
                     + "Аргументи: ТИП_З’ЄДНАННЯ,ВЕРСІЯ_ПРОТОКОЛУ\n"
-                    + "Приклад: RIBBON_GREETINGS:CLIENT,a1",
-                ":CLIENT,a1", 0));
+                    + "Приклад: RIBBON_GREETINGS:CLIENT,a2",
+                ":CLIENT,a2", 0));
         
-        commands.add(new ProtocolCommand("RIBBON_EXIT",
-                "RIBBON_EXIT:\n"
-                    + "Команда закриття з’єднання з сервером.\n"
-                    + "Аргументи: немає",
-                ":", 0));
-        
-        commands.add(new ProtocolCommand("RIBBON_LOGIN",
-                "[LEVEL_1] RIBBON_LOGIN\n" 
+        commands.add(new ProtocolCommand("RIBBON_CONNECTION_LOGIN",
+                "[LEVEL_0] RIBBON_CONNECTION_LOGIN\n" 
                     + "Команда реєстрації користувача у системі.\n"
                     + "Аргументи: ЛОГІН,ПАРОЛЬ у формі csv\n"
                     + "Приклад: RIBBON_LOGIN:{USER},{PASSWORD}",
-                ":{guest},{guest}", 1));
+                ":{guest},{guest}", 0));
+        
+        commands.add(new ProtocolCommand("RIBBON_CONNECTION_CLOSE",
+                "[LEVEL_0] RIBBON_CONNECTION_CLOSE\n"
+                    + "Команда закриття з’єднання з сервером.\n"
+                    + "Аргументи: немає",
+                ":", 0));
         
         commands.add(new ProtocolCommand("RIBBON_GET_DIRS",
                 "[LEVEL_1] RIBBON_GET_DIRS"

@@ -83,7 +83,7 @@ public class RibbonProber {
                     String inputLine;
                     while (isAlive) {
                        mainWindow.addToLog("< " + (inputLine = inStream.readLine()) + "\n");
-                       if (inputLine.equals("BYE:")) {
+                       if (inputLine.equals("COMMIT_CLOSE:")) {
                            isAlive = false;
                        }
                     }

@@ -55,7 +55,7 @@ public class mainFrame extends javax.swing.JFrame {
         levelBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Дебагер протоколу системи \"Стрічка\"");
+        setTitle("Дебагер протоколу системи \"Стрічка\" a2");
 
         commandBox.setModel(new javax.swing.DefaultComboBoxModel(ProtocolDecription.getCommandList(-1)));
         commandBox.setToolTipText("");
