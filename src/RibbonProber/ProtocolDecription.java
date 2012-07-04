@@ -73,7 +73,7 @@ public abstract class ProtocolDecription {
                     + "Команда реєстрації користувача у системі.\n"
                     + "Аргументи: ЛОГІН,ПАРОЛЬ у формі csv\n"
                     + "Приклад: RIBBON_LOGIN:{USER},{PASSWORD}",
-                ":{guest},{guest}", 0));
+                ":{root},74cc1c60799e0a786ac7094b532f01b1", 0));
         
         commands.add(new ProtocolCommand("RIBBON_CONNECTION_CLOSE",
                 "[LEVEL_0] RIBBON_CONNECTION_CLOSE\n"
