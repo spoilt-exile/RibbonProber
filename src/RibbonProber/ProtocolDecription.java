@@ -65,14 +65,14 @@ public abstract class ProtocolDecription {
                 "[LEVEL_0] RIBBON_CONNECTION_INIT\n"
                     + "Команда привітання з сервером.\n"
                     + "Аргументи: ТИП_З’ЄДНАННЯ,ВЕРСІЯ_ПРОТОКОЛУ\n"
-                    + "Приклад: RIBBON_GREETINGS:CLIENT,a2",
+                    + "Приклад: RIBBON_CONNECTION_INIT:CLIENT,a2",
                 ":CLIENT,a2", 0));
         
         commands.add(new ProtocolCommand("RIBBON_CONNECTION_LOGIN",
                 "[LEVEL_0] RIBBON_CONNECTION_LOGIN\n" 
                     + "Команда реєстрації користувача у системі.\n"
                     + "Аргументи: ЛОГІН,ПАРОЛЬ у формі csv\n"
-                    + "Приклад: RIBBON_LOGIN:{USER},{PASSWORD}",
+                    + "Приклад: RIBBON_CONNECTION_LOGIN:{root},74cc1c60799e0a786ac7094b532f01b1",
                 ":{root},74cc1c60799e0a786ac7094b532f01b1", 0));
         
         commands.add(new ProtocolCommand("RIBBON_CONNECTION_CLOSE",
