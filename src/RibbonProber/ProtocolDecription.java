@@ -143,13 +143,6 @@ public abstract class ProtocolDecription {
                 + "Приклад:RIBBON_DELETE_MESSAGE:0000000107",
                 ":", 1
                 ));
-        
-        commands.add(new ProtocolCommand("RIBBON_SCTL_CONTROL_LOGIN",
-                "[LEVEL_2] RIBBON_SCTL_CONTROL_LOGIN\n"
-                + "Команда реєстрації адміністратора у системі.\n"
-                + "Аргументи: ЛОГІН,ПАРОЛЬ у формі csv\n"
-                + "Приклад: RIBBON_SCTL_CONTROL_LOGIN:{USER},{PASSWORD}",
-                ":{guest},{guest}", 2));
     }
     
     /**
