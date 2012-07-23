@@ -61,22 +61,22 @@ public abstract class ProtocolDecription {
      */
     public static void initProtocol() {
         
-        commands.add(new ProtocolCommand("RIBBON_CONNECTION_INIT",
-                "[LEVEL_0] RIBBON_CONNECTION_INIT\n"
+        commands.add(new ProtocolCommand("RIBBON_NCTL_INIT",
+                "[LEVEL_0] RIBBON_NCTL_INIT\n"
                     + "Команда привітання з сервером.\n"
                     + "Аргументи: ТИП_З’ЄДНАННЯ,ВЕРСІЯ_ПРОТОКОЛУ\n"
-                    + "Приклад: RIBBON_CONNECTION_INIT:CLIENT,a2",
+                    + "Приклад: RIBBON_NCTL_INIT:CLIENT,a2",
                 ":CLIENT,a2", 0));
         
-        commands.add(new ProtocolCommand("RIBBON_CONNECTION_LOGIN",
-                "[LEVEL_0] RIBBON_CONNECTION_LOGIN\n" 
+        commands.add(new ProtocolCommand("RIBBON_NCTL_LOGIN",
+                "[LEVEL_0] RIBBON_NCTL_LOGIN\n" 
                     + "Команда реєстрації користувача у системі.\n"
                     + "Аргументи: ЛОГІН,ПАРОЛЬ у формі csv\n"
-                    + "Приклад: RIBBON_CONNECTION_LOGIN:{root},74cc1c60799e0a786ac7094b532f01b1",
+                    + "Приклад: RIBBON_NCTL_LOGIN:{root},74cc1c60799e0a786ac7094b532f01b1",
                 ":{root},74cc1c60799e0a786ac7094b532f01b1", 0));
         
-        commands.add(new ProtocolCommand("RIBBON_CONNECTION_CLOSE",
-                "[LEVEL_0] RIBBON_CONNECTION_CLOSE\n"
+        commands.add(new ProtocolCommand("RIBBON_NCTL_CLOSE",
+                "[LEVEL_0] RIBBON_NCTL_CLOSE\n"
                     + "Команда закриття з’єднання з сервером.\n"
                     + "Аргументи: немає",
                 ":", 0));
