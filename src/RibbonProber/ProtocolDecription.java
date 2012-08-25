@@ -64,9 +64,9 @@ public abstract class ProtocolDecription {
         commands.add(new ProtocolCommand("RIBBON_NCTL_INIT",
                 "[LEVEL_0] RIBBON_NCTL_INIT\n"
                     + "Команда привітання з сервером.\n"
-                    + "Аргументи: ТИП_З’ЄДНАННЯ,ВЕРСІЯ_ПРОТОКОЛУ\n"
-                    + "Приклад: RIBBON_NCTL_INIT:CLIENT,a2",
-                ":CLIENT,a2", 0));
+                    + "Аргументи: ТИП_З’ЄДНАННЯ,ВЕРСІЯ_ПРОТОКОЛУ,КОДОВА_СТОРІНКА\n"
+                    + "Приклад: RIBBON_NCTL_INIT:CLIENT,a2,UTF-8",
+                ":CLIENT,a2," + System.getProperty("file.encoding") , 0));
         
         commands.add(new ProtocolCommand("RIBBON_NCTL_LOGIN",
                 "[LEVEL_0] RIBBON_NCTL_LOGIN\n" 
