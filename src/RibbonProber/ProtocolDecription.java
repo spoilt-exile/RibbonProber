@@ -104,7 +104,7 @@ public abstract class ProtocolDecription {
         commands.add(new ProtocolCommand("RIBBON_POST_MESSAGE",
                 "[LEVEL_1] RIBBON_POST_MESSAGE\n"
                     + "Команда випуску повідомлення до системи.\n"
-                    + "Аргументи:[НАПРЯМОК1,НАПРЯМОК2],{Заголовок},[ТЕГ1,ТЕГ2]\n"
+                    + "Аргументи:ІНДЕКС_ОРИГІНАЛУ,[НАПРЯМОК1,НАПРЯМОК2],МОВА,{Заголовок},[ТЕГ1,ТЕГ2]\n"
                     + "ТЕКСТ_ПОВІДОМЛЕННЯ\n"
                     + "END:\n"
                     + "Приклад: RIBBON_POST_MESSAGE:[СИСТЕМА.ТЕСТ],{Тестове повідомлення},[система,тест]\n"
@@ -113,7 +113,7 @@ public abstract class ProtocolDecription {
                     + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
                     + "як текст повідомлення!",
-                ":[],{},[]\n\nEND:", 1));
+                ":-1,[],UKN,{},[]\n\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_GET_MESSAGE",
                 "[LEVEL_1] RIBBON_GET_MESSAGE\n"
