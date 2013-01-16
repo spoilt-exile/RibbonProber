@@ -125,16 +125,16 @@ public abstract class ProtocolDecription {
         commands.add(new ProtocolCommand("RIBBON_MODIFY_MESSAGE",
                 "[LEVEL_1] RIBBON_MODIFY_MESSAGE\n"
                     + "Команда редагування тексту повідомлення певного напрямку за індексом.\n"
-                    + "Аргументи: НАПРЯМОК,ІНДЕКС\n"
+                    + "Аргументи: ІНДЕКС,[НАПРЯМОК1,НАПРЯМОК2],МОВА,{Заголовок},[ТЕГ1,ТЕГ2]\n"
                     + "НОВИЙ_ТЕКСТ_ПОВІДОМЛЕННЯ\n"
                     + "END:\n"
-                    + "Приклад:RIBBON_MODIFY_MESSAGE:СИСТЕМА.ТЕСТ,0000000107\n"
+                    + "Приклад:RIBBON_MODIFY_MESSAGE:0000000107,[СИСТЕМА.ТЕСТ],{Тестове повідомлення},[система,тест]\n"
                     + "Новий текст тестового повідомлення.\n"
                     + "END:\n\n"
                     + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
                     + "як текст повідомлення!",
-                ":\n\nEND:", 1));
+                "-1,[],UKN,{},[]\n\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_DELETE_MESSAGE",
                 "[LEVEL_1] RIBBON_DELETE_MESSAGE\n"
