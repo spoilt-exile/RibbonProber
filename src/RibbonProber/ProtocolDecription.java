@@ -83,8 +83,8 @@ public abstract class ProtocolDecription {
         
         commands.add(new ProtocolCommand("RIBBON_GET_DIRS",
                 "[LEVEL_1] RIBBON_GET_DIRS"
-                + "Команда повертання списку напрямків системи у csv формі.\n"
-                + "Аргументы: немає",
+                    + "Команда повертання списку напрямків системи у csv формі.\n"
+                    + "Аргументы: немає",
                 ":", 1));
         
         commands.add(new ProtocolCommand("RIBBON_GET_TAGS",
@@ -138,10 +138,17 @@ public abstract class ProtocolDecription {
         
         commands.add(new ProtocolCommand("RIBBON_DELETE_MESSAGE",
                 "[LEVEL_1] RIBBON_DELETE_MESSAGE\n"
-                + "Команда видаленя повідомлення з усіх напрямків за індексом.\n"
-                + "Аргументи:ІНДЕКС_ПОВІДОМЛЕННЯ\n"
-                + "Приклад:RIBBON_DELETE_MESSAGE:0000000107",
+                    + "Команда видаленя повідомлення з усіх напрямків за індексом.\n"
+                    + "Аргументи:ІНДЕКС_ПОВІДОМЛЕННЯ\n"
+                    + "Приклад:RIBBON_DELETE_MESSAGE:0000000107",
                 ":", 1
+                ));
+        commands.add(new ProtocolCommand("RIBBON_ADD_MESSAGE_PROPERTY",
+                "[LEVEL_1] RIBBON_ADD_MESSAGE_PROPERTY\n"
+                    + "Команда додавання системної ознаки до повідомлення.\n"
+                    + "Аргументи:ІНДЕКС,ТИП_ОЗНАКИ,{ТЕКСТОВА_МІТКА}\n"
+                    + "Приклад:RIBBON_ADD_MESSAGE_PROPERTY:0000000107,URGENT,{!!}",
+                ":-1,URGENT,{}", 1
                 ));
     }
     
