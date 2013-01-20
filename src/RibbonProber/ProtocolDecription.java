@@ -134,7 +134,7 @@ public abstract class ProtocolDecription {
                     + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
                     + "як текст повідомлення!",
-                "-1,[],UKN,{},[]\n\nEND:", 1));
+                ":-1,[],UKN,{},[]\n\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_DELETE_MESSAGE",
                 "[LEVEL_1] RIBBON_DELETE_MESSAGE\n"
