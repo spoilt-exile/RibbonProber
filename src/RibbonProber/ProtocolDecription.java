@@ -150,6 +150,14 @@ public abstract class ProtocolDecription {
                     + "Приклад:RIBBON_ADD_MESSAGE_PROPERTY:0000000107,URGENT,{!!}",
                 ":-1,URGENT,{}", 1
                 ));
+        
+        commands.add(new ProtocolCommand("RIBBON_DEL_MESSAGE_PROPERTY",
+                "[LEVEL_1] RIBBON_DEL_MESSAGE_PROPERTY\n"
+                    + "Команда видалення системної ознаки з повідомлення.\n"
+                    + "Аргументи:ІНДЕКС,ТИП_ОЗНАКИ,ДАТА_ТА_ЧАС_ОЗНАКИ\n"
+                    + "Приклад:RIBBON_DEL_MESSAGE_PROPERTY:0000000107,URGENT,23:43:27 20.01.2013",
+                ":-1,URGENT,", 1
+                ));
     }
     
     /**
