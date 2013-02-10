@@ -86,7 +86,7 @@ public abstract class ProtocolDecription {
                     + "Команда реєстрації користувача у системі.\n"
                     + "Аргументи: ЛОГІН,ПАРОЛЬ у формі csv\n"
                     + "Приклад: RIBBON_NCTL_LOGIN:{root},74cc1c60799e0a786ac7094b532f01b1",
-                ":{root},74cc1c60799e0a786ac7094b532f01b1", 0));
+                ":{root},63a9f0ea7bb98050796b649e85481845", 0));
         
         commands.add(new ProtocolCommand("RIBBON_NCTL_CLOSE",
                 "[LEVEL_0] RIBBON_NCTL_CLOSE\n"
