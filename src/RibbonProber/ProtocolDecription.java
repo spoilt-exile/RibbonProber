@@ -88,6 +88,19 @@ public abstract class ProtocolDecription {
                     + "Приклад: RIBBON_NCTL_LOGIN:{root},74cc1c60799e0a786ac7094b532f01b1",
                 ":{root},63a9f0ea7bb98050796b649e85481845", 0));
         
+        commands.add(new ProtocolCommand("RIBBON_NCTL_GET_ID",
+                "[LEVEL_0] RIBBON_NCTL_GET_ID\n"
+                    + "Команда отримання ідентефикатору цієї сесії.\n"
+                    + "Аргументи: немає",
+                ":", 0));
+        
+        commands.add(new ProtocolCommand("RIBBON_NCTL_RESUME",
+                "[LEVEL_0] RIBBON_NCTL_GET_ID\n"
+                    + "Команда отримання ідентефикатору цієї сесії.\n"
+                    + "Аргументи: ІДЕНТЕФІКАТОР\n"
+                    + "Приклад: RIBBON_NCTL_RESUME:74cc1c60799e0a786ac7094b532f01b1",
+                ":", 0));
+        
         commands.add(new ProtocolCommand("RIBBON_NCTL_CLOSE",
                 "[LEVEL_0] RIBBON_NCTL_CLOSE\n"
                     + "Команда закриття з’єднання з сервером.\n"
@@ -117,16 +130,16 @@ public abstract class ProtocolDecription {
         commands.add(new ProtocolCommand("RIBBON_POST_MESSAGE",
                 "[LEVEL_1] RIBBON_POST_MESSAGE\n"
                     + "Команда випуску повідомлення до системи.\n"
-                    + "Аргументи:ІНДЕКС_ОРИГІНАЛУ,[НАПРЯМОК1,НАПРЯМОК2],МОВА,{Заголовок},[ТЕГ1,ТЕГ2]\n"
+                    + "Аргументи:ІНДЕКС_ОРИГІНАЛУ,[НАПРЯМОК1,НАПРЯМОК2],МОВА,{Заголовок},[ТЕГ1,ТЕГ2],{СИСТЕМНІ_ОЗНАКИ}\n"
                     + "ТЕКСТ_ПОВІДОМЛЕННЯ\n"
                     + "END:\n"
-                    + "Приклад: RIBBON_POST_MESSAGE:[СИСТЕМА.ТЕСТ],{Тестове повідомлення},[система,тест]\n"
+                    + "Приклад: RIBBON_POST_MESSAGE:[СИСТЕМА.ТЕСТ],{Тестове повідомлення},[система,тест],{}\n"
                     + "Це тестове повідомлення.\n"
                     + "END:\n\n"
                     + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
                     + "як текст повідомлення!",
-                ":-1,[],UKN,{},[]\n\nEND:", 1));
+                ":-1,[],UKN,{},[],{}\n\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_GET_MESSAGE",
                 "[LEVEL_1] RIBBON_GET_MESSAGE\n"
@@ -138,16 +151,16 @@ public abstract class ProtocolDecription {
         commands.add(new ProtocolCommand("RIBBON_MODIFY_MESSAGE",
                 "[LEVEL_1] RIBBON_MODIFY_MESSAGE\n"
                     + "Команда редагування тексту повідомлення певного напрямку за індексом.\n"
-                    + "Аргументи: ІНДЕКС,[НАПРЯМОК1,НАПРЯМОК2],МОВА,{Заголовок},[ТЕГ1,ТЕГ2]\n"
+                    + "Аргументи: ІНДЕКС,[НАПРЯМОК1,НАПРЯМОК2],МОВА,{Заголовок},[ТЕГ1,ТЕГ2],{СИСТЕМНІ_ОЗНАКИ}\n"
                     + "НОВИЙ_ТЕКСТ_ПОВІДОМЛЕННЯ\n"
                     + "END:\n"
-                    + "Приклад:RIBBON_MODIFY_MESSAGE:0000000107,[СИСТЕМА.ТЕСТ],{Тестове повідомлення},[система,тест]\n"
+                    + "Приклад:RIBBON_MODIFY_MESSAGE:0000000107,[СИСТЕМА.ТЕСТ],{Тестове повідомлення},[система,тест],{}\n"
                     + "Новий текст тестового повідомлення.\n"
                     + "END:\n\n"
                     + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
                     + "як текст повідомлення!",
-                ":-1,[],UKN,{},[]\n\nEND:", 1));
+                ":-1,[],UKN,{},[],{}\n\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_DELETE_MESSAGE",
                 "[LEVEL_1] RIBBON_DELETE_MESSAGE\n"
