@@ -101,6 +101,33 @@ public abstract class ProtocolDecription {
                     + "Приклад: RIBBON_NCTL_RESUME:74cc1c60799e0a786ac7094b532f01b1",
                 ":", 0));
         
+        commands.add(new ProtocolCommand("RIBBON_NCTL_REM_LOGIN",
+                "[LEVEL_0] RIBBON_NCTL_REM_LOGIN\n" 
+                    + "Команда реєстрації користувача через видалений інтерфейс.\n"
+                    + "Аргументи: {ЛОГІН},ПАРОЛЬ (у формі csv)\n"
+                    + "Приклад: RIBBON_NCTL_REM_LOGIN:{root},63a9f0ea7bb98050796b649e85481845",
+                ":{root},63a9f0ea7bb98050796b649e85481845", 0));
+        
+        commands.add(new ProtocolCommand("RIBBON_NCTL_GET_USERNAME",
+                "[LEVEL_0] RIBBON_NCTL_GET_USERNAME\n"
+                    + "Команда отримання логіну поточного користувача.\n"
+                    + "Аргументи: немає",
+                ":", 0));
+        
+        commands.add(new ProtocolCommand("RIBBON_NCTL_SET_REMOTE_MODE",
+                "[LEVEL_0] RIBBON_NCTL_SET_REMOTE_MODE\n"
+                    + "Команда керування видаленим режимом поточного з’єднання.\n"
+                    + "Аргументи: 0 чи 1 (0 - вимикає, 1- вмикає)\n"
+                    + "Приклад: RIBBON_NCTL_SET_REMOTE_MODE:1",
+                ":1", 0));
+        
+        commands.add(new ProtocolCommand("RIBBON_NCTL_ACCESS_CONTEXT",
+                "[LEVEL_0] RIBBON_NCTL_ACCESS_CONTEXT\n"
+                    + "Команда зміни контексту виконання наступної команди.\n"
+                    + "Аргументи: {КОРИСТУВАЧ}\n"
+                    + "Приклад: RIBBON_NCTL_ACCESS_CONTEXT:{test}",
+                ":{test}", 0));
+        
         commands.add(new ProtocolCommand("RIBBON_NCTL_CLOSE",
                 "[LEVEL_0] RIBBON_NCTL_CLOSE\n"
                     + "Команда закриття з’єднання з сервером.\n"
@@ -108,9 +135,16 @@ public abstract class ProtocolDecription {
                 ":", 0));
         
         commands.add(new ProtocolCommand("RIBBON_GET_DIRS",
-                "[LEVEL_1] RIBBON_GET_DIRS"
+                "[LEVEL_1] RIBBON_GET_DIRS\n"
                     + "Команда повертання списку напрямків системи у csv формі.\n"
                     + "Аргументы: немає",
+                ":", 1));
+        
+        commands.add(new ProtocolCommand("RIBBON_GET_PSEUDO",
+                "[LEVEL_1] RIBBON_GET_PSEUDO\n"
+                    + "Команда повернення списку псевдонапрямків які може використовувати\n"
+                    + "користувач у сsv формі.\n"
+                    + "Аргументи: немає",
                 ":", 1));
         
         commands.add(new ProtocolCommand("RIBBON_GET_TAGS",
@@ -133,13 +167,27 @@ public abstract class ProtocolDecription {
                     + "Аргументи:ІНДЕКС_ОРИГІНАЛУ,[НАПРЯМОК1,НАПРЯМОК2],МОВА,{Заголовок},[ТЕГ1,ТЕГ2],{СИСТЕМНІ_ОЗНАКИ}\n"
                     + "ТЕКСТ_ПОВІДОМЛЕННЯ\n"
                     + "END:\n"
-                    + "Приклад: RIBBON_POST_MESSAGE:[СИСТЕМА.ТЕСТ],{Тестове повідомлення},[система,тест],{}\n"
+                    + "Приклад: RIBBON_POST_MESSAGE:-1,[СИСТЕМА.ТЕСТ],UA,{Тестове повідомлення},[система,тест],{}\n"
                     + "Це тестове повідомлення.\n"
                     + "END:\n\n"
                     + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
                     + "як текст повідомлення!",
-                ":-1,[],UKN,{},[],{}\n\nEND:", 1));
+                ":-1,[СИСТЕМА.Тест],UA,{Тестове повідомлення},[тест,система],{}\nЦе тестове повідомлення на напрямок СИСТЕМА.Тест.\nEND:", 1));
+        
+        commands.add(new ProtocolCommand("RIBBON_POST_MESSAGE_BY_PSEUDO",
+                "[LEVEL_1] RIBBON_POST_MESSAGE_BY_PSEUDO\n"
+                    + "Команда випуску повідомлення до системи за псевдонапрямком.\n"
+                    + "Аргументи:{ПСЕВДОНАПРЯМОК},МОВА,{Заголовок},[ТЕГ1,ТЕГ2],{СИСТЕМНІ_ОЗНАКИ}\n"
+                    + "ТЕКСТ_ПОВІДОМЛЕННЯ\n"
+                    + "END:\n"
+                    + "Приклад: RIBBON_POST_MESSAGE_BY_PSEUDO:{Тест},UA,{Тестове повідомлення},[система,тест],{}\n"
+                    + "Це тестове повідомлення.\n"
+                    + "END:\n\n"
+                    + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
+                    + "без цієї команди сервер буде сприймати усі наступні команди\n"
+                    + "як текст повідомлення!",
+                ":{Тест},UA,{Тестове повідомлення},[тест,система],{}\nЦе тестове повідомлення на псевдонапрямок Тест.\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_GET_MESSAGE",
                 "[LEVEL_1] RIBBON_GET_MESSAGE\n"
