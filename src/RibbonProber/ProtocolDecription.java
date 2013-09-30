@@ -125,7 +125,9 @@ public abstract class ProtocolDecription {
                 "[LEVEL_0] RIBBON_NCTL_ACCESS_CONTEXT\n"
                     + "Команда зміни контексту виконання наступної команди.\n"
                     + "Аргументи: {КОРИСТУВАЧ}\n"
-                    + "Приклад: RIBBON_NCTL_ACCESS_CONTEXT:{test}",
+                    + "Приклад: RIBBON_NCTL_ACCESS_CONTEXT:{test}"
+                    + "\n\nУВАГА! Ця команда для виконання вимагає увікнення видаленого режиму\n"
+                    + "(команда RIBBON_NCTL_SET_REMOTE_MODE)!",
                 ":{test}", 0));
         
         commands.add(new ProtocolCommand("RIBBON_NCTL_CLOSE",
@@ -144,7 +146,9 @@ public abstract class ProtocolDecription {
                 "[LEVEL_1] RIBBON_GET_PSEUDO\n"
                     + "Команда повернення списку псевдонапрямків які може використовувати\n"
                     + "користувач у сsv формі.\n"
-                    + "Аргументи: немає",
+                    + "Аргументи: немає"
+                    + "\n\nУВАГА! Ця команда для виконання вимагає увікнення видаленого режиму\n"
+                    + "(команда RIBBON_NCTL_SET_REMOTE_MODE)!",
                 ":", 1));
         
         commands.add(new ProtocolCommand("RIBBON_GET_TAGS",
@@ -186,7 +190,9 @@ public abstract class ProtocolDecription {
                     + "END:\n\n"
                     + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
-                    + "як текст повідомлення!",
+                    + "як текст повідомлення!"
+                    + "\n\nУВАГА! Ця команда для виконання вимагає увікнення видаленого режиму\n"
+                    + "(команда RIBBON_NCTL_SET_REMOTE_MODE)!",
                 ":{Тест},UA,{Тестове повідомлення},[тест,система],{}\nЦе тестове повідомлення на псевдонапрямок Тест.\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_GET_MESSAGE",
@@ -209,6 +215,22 @@ public abstract class ProtocolDecription {
                     + "без цієї команди сервер буде сприймати усі наступні команди\n"
                     + "як текст повідомлення!",
                 ":-1,[],UKN,{},[],{}\n\nEND:", 1));
+        
+        commands.add(new ProtocolCommand("RIBBON_MODIFY_MESSAGE_BY_PSEUDO",
+                "[LEVEL_1] RIBBON_MODIFY_MESSAGE_BY_PSEUDO\n"
+                    + "Команда редагування тексту повідомлення певного напрямку за індексом і псевдонапрямком.\n"
+                    + "Аргументи: ІНДЕКС,{ПСЕВДОНАПРЯМОК},МОВА,{Заголовок},[ТЕГ1,ТЕГ2],{СИСТЕМНІ_ОЗНАКИ}\n"
+                    + "НОВИЙ_ТЕКСТ_ПОВІДОМЛЕННЯ\n"
+                    + "END:\n"
+                    + "Приклад:RIBBON_MODIFY_MESSAGE_BY_PSEUDO:0000000107,{Тест},{Тестове повідомлення},[система,тест],{}\n"
+                    + "Новий текст тестового повідомлення.\n"
+                    + "END:\n\n"
+                    + "Примітка: команда END: на кінці повідомлення обов’язкова,\n"
+                    + "без цієї команди сервер буде сприймати усі наступні команди\n"
+                    + "як текст повідомлення!"
+                    + "\n\nУВАГА! Ця команда для виконання вимагає увікнення видаленого режиму\n"
+                    + "(команда RIBBON_NCTL_SET_REMOTE_MODE)!",
+                ":-1,{},UKN,{},[],{}\n\nEND:", 1));
         
         commands.add(new ProtocolCommand("RIBBON_DELETE_MESSAGE",
                 "[LEVEL_1] RIBBON_DELETE_MESSAGE\n"
